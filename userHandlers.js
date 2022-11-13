@@ -67,7 +67,10 @@ const getUserById = (req, res) => {
         res.status(404).send();
       }
     })
-    .catch((err) => console.error(err))
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving data from database");
+    })
 };
 
 const postUser = (req, res) => {
